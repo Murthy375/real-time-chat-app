@@ -1,8 +1,14 @@
 import app from "./index.js";
+
+// env realated
 import "dotenv/config";
 
-const PORT = process.env.PORT ?? 4000;
+// mongodb related
+import { connectToMongoDB } from "./connections/mongodb.connection.js";
 
+connectToMongoDB(process.env.MONGODB_URL);
+
+const PORT = process.env.PORT ?? 4000;
 app.listen(PORT, () => {
-  console.log(`\nhttp://localhost:${PORT}\n`);
+  console.log(`\nhttp://localhost:${PORT}`);
 });
