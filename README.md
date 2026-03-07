@@ -1,8 +1,10 @@
 # Read-Time Chat App
 
+## ✍️ Description
+
 A one-to-one real-time chat application built with authentication and message history.
 
-## Core Features
+## ⭐ Core Features
 
 - User authentication(JWT)
 - 1-to-1 messaging
@@ -10,21 +12,23 @@ A one-to-one real-time chat application built with authentication and message hi
 - Chat history
 - Simple UI(Daisy UI)
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-Frontend:
+### Frontend:
+
 - React
 - Daisy UI
 - Tailwind CSS
 - Socket.IO (client)
 
-Backend:
+### Backend:
+
 - Node.js
 - Express
 - Socket.IO
 - MongoDB
 
-## Project Structure
+## 🗂️ Project Structure
 
 ```
 my-chat-app/
@@ -34,3 +38,12 @@ my-chat-app/
 |--README.md
 |--.gitignore
 ```
+
+## 🛣️ API Routes
+
+### Auth Routes
+
+| method | endpoint    | desc                               | authentication needed |
+| ------ | ----------- | ---------------------------------- | --------------------- |
+| POST   | `/register` | to register a new user             | false                 |
+| POST   | `/login`    | so user can login and recive token | false                 |
