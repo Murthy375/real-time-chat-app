@@ -31,12 +31,30 @@ A one-to-one real-time chat application built with authentication and message hi
 ## 🗂️ Project Structure
 
 ```
-my-chat-app/
-|--/client
-|--/docs
-|--/server
-|--README.md
-|--.gitignore
+real-time-chat-app/
+|_ /client
+|_ /docs
+|_ /server
+|   |_ /node_modules
+|   |_ /src
+|   |   |_ /connections
+|   |   |_ /controllers
+|   |   |_ /middlewares
+|   |   |_ /routes
+|   |   |_ /services
+|   |   |_ /validations
+|   |   |_ app.js
+|   |   |_ server.js
+|   |   |_ socket.js
+|   |
+|   |_ .env
+|   |_ .env.example
+|   |_ package.json
+|   |_ pnpm-lock.yaml
+|
+|_ .gitignore
+|_ notes.txt
+|_ README.md
 ```
 
 ## 🛣️ API Routes
