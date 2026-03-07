@@ -1,0 +1,5 @@
+--> WHY ALL THESE FILES? (inside ./server/src)
+
+`app.js` = handles all REAST API stuff
+`server.js` = starts the backend(REAST API + MongoDB + Socket.IO for real-time messaging)
+`socket.index.js` = handles all things Socket.IO e.i real-time messaging
