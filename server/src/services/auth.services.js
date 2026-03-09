@@ -2,11 +2,17 @@
 import { User } from "../models/user.model.js";
 
 // utils related
-import { hashPassword } from "../utils/hash.util.js";
+import {
+  hashPassword,
+  comparePassword,
+  generateJwtToken,
+} from "../utils/auth.util.js";
 
 // find user by email
 const findUserByEmail = async (email) => {
-  const existingUser = await User.findOne({ email }).select("_id name");
+  const existingUser = await User.findOne({ email }).select(
+    "_id name firstName lastName email password createdAt updatedAt",
+  );
 
   // if user does not exist
   if (!existingUser) {
@@ -16,6 +22,10 @@ const findUserByEmail = async (email) => {
   return {
     id: existingUser._id,
     name: existingUser.name,
+    firstName: existingUser.firstName,
+    lastName: existingUser.lastName,
+    email: existingUser.email,
+    password: existingUser.password,
   };
 };
 
@@ -42,7 +52,7 @@ const createUser = async (data) => {
   };
 };
 
-// service for registering the user
+// register user service
 export const registerUserService = async (data) => {
   // check if the user already exists
   const existingUser = await findUserByEmail(data.email);
@@ -56,4 +66,37 @@ export const registerUserService = async (data) => {
   const user = await createUser(data);
 
   return user;
+};
+
+// login user service
+export const loginUserService = async (data) => {
+  // check if the user already exists
+  const existingUser = await findUserByEmail(data.email);
+
+  // user does not exist
+  if (!existingUser) {
+    const error = new Error("user does not exist");
+    error.status = 400;
+    throw error;
+  }
+
+  // de-hash and compare passwords via bcrypt
+  const isPasswordMatch = comparePassword(data.password, existingUser.password);
+
+  // password does not match
+  if (!isPasswordMatch) {
+    const error = new Error("password does not match");
+    error.status = 401;
+    throw error;
+  }
+
+  // generate jwt token
+  const token = generateJwtToken({
+    id: existingUser.id,
+    name: existingUser.name,
+    email: existingUser.email,
+    createdAt: existingUser.createdAt,
+  });
+
+  return token;
 };

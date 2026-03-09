@@ -13,3 +13,8 @@ export const registerPostRequestBodySchema = z
     message: "Passwords don't match",
     path: ["confirmPassword"],
   });
+
+export const loginPostRequestBodySchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});

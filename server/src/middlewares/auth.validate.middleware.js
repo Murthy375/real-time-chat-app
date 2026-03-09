@@ -1,5 +1,8 @@
 // validations related
-import { registerPostRequestBodySchema } from "../validations/auth.validations.js";
+import {
+  loginPostRequestBodySchema,
+  registerPostRequestBodySchema,
+} from "../validations/auth.validations.js";
 
 /**
  * @param {import("express").Request} req
@@ -11,6 +14,22 @@ import { registerPostRequestBodySchema } from "../validations/auth.validations.j
 export const validateRegisterRequest = async (req, res, next) => {
   // validate the req.body
   const validationResult = await registerPostRequestBodySchema.safeParseAsync(
+    req.body,
+  );
+
+  // error during validation
+  if (!validationResult.success) {
+    return res.status(400).json({ error: validationResult.error.format() });
+  }
+
+  req.validationResult = validationResult;
+  next();
+};
+
+// validates the request body for the login endpoint
+export const validateLoginRequest = async (req, res, next) => {
+  // validate the req.body
+  const validationResult = await loginPostRequestBodySchema.safeParseAsync(
     req.body,
   );
 
