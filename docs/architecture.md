@@ -2,7 +2,7 @@
 
 The backend follows a layered architecture:
 
-Routes -> Controllers -> Services -> Models
+Routes -> Controllers -> Services (also Utils, if needed) -> Models
 
 the flow:
 
