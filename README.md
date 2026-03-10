@@ -40,8 +40,10 @@ real-time-chat-app/
 |   |   |_ /connections
 |   |   |_ /controllers
 |   |   |_ /middlewares
+|   |   |_ /models
 |   |   |_ /routes
 |   |   |_ /services
+|   |   |_ /utils
 |   |   |_ /validations
 |   |   |_ app.js
 |   |   |_ server.js
