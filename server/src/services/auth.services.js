@@ -59,7 +59,9 @@ export const registerUserService = async (data) => {
 
   // if user already exists
   if (existingUser) {
-    return;
+    const error = new Error("user already exists");
+    error.status = 409;
+    throw error;
   }
 
   // create the user
