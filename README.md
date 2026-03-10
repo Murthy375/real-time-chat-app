@@ -67,3 +67,10 @@ real-time-chat-app/
 | ------ | ----------- | ---------------------------------- | --------------------- |
 | POST   | `/register` | to register a new user             | false                 |
 | POST   | `/login`    | so user can login and recive token | false                 |
+
+### User Routes
+
+| method | endpoint    | desc                               | authentication needed |
+| ------ | ----------- | ---------------------------------- | --------------------- |
+| GET    | `/user:id`  | to get specific info of an user    | ture                  |
+
