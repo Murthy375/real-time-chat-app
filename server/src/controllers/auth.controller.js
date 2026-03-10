@@ -42,9 +42,14 @@ export const loginUserController = async (req, res) => {
     // login the user using the service
     const token = await loginUserService(validationResult.data);
 
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // here if app is deployed, then secure should be true, otherwise false
+      sameSite: "strict",
+    });
+
     return res.status(200).json({
       success: true,
-      token,
       message: "user logged in successfully",
     });
   } catch (error) {
