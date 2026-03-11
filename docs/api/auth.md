@@ -41,7 +41,7 @@ status code : 201(created)
 
 POST `{{BASE_URL}}`/api/auth/login
 
-## Request body
+### Request body
 
 ```json
 {
@@ -50,14 +50,13 @@ POST `{{BASE_URL}}`/api/auth/login
 }
 ```
 
-## Respose
+### Respose
 
 status code: 404(not found)
 
 ```json
 {
   "success": "false",
-  "data": {},
   "message": "user does not exists"
 }
 ```
@@ -67,7 +66,6 @@ status code: 400(bad request)
 ```json
 {
   "success": "false",
-  "data": {},
   "message": "password does not match"
 }
 ```
