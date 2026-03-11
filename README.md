@@ -70,7 +70,6 @@ real-time-chat-app/
 
 ### User Routes
 
-| method | endpoint    | desc                               | authentication needed |
-| ------ | ----------- | ---------------------------------- | --------------------- |
-| GET    | `/user:id`  | to get specific info of an user    | ture                  |
-
+| method | endpoint   | desc                                    | authentication needed |
+| ------ | ---------- | --------------------------------------- | --------------------- |
+| GET    | `/profile` | to get profile of an authenticated user | ture                  |
