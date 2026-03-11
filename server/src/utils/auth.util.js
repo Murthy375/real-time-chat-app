@@ -9,7 +9,6 @@ import jwt from "jsonwebtoken";
 
 // hash password using bcrypt
 export const hashPassword = (password) => {
-  // hash the password with the salt
   const saltRounds = 10;
   const hashedPassword = bcrypt.hashSync(password, saltRounds);
 
@@ -24,4 +23,9 @@ export const comparePassword = (password, hashedPassword) => {
 // generate jwt token
 export const generateJwtToken = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET_KEY);
+};
+
+// decode jwt token
+export const decodeToken = (token) => {
+  return jwt.verify(token, process.env.JWT_SECRET_KEY);
 };
