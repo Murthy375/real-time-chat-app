@@ -8,22 +8,19 @@ importers:
 
   .:
     dependencies:
-      '@tailwindcss/vite':
-        specifier: ^4.2.1
-        version: 4.2.1(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1))
       react:
         specifier: ^19.2.0
         version: 19.2.4
       react-dom:
         specifier: ^19.2.0
         version: 19.2.4(react@19.2.4)
-      tailwindcss:
-        specifier: ^4.2.1
-        version: 4.2.1
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.1
         version: 9.39.4
+      '@tailwindcss/vite':
+        specifier: ^4.2.1
+        version: 4.2.1(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1))
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.14
@@ -45,6 +42,9 @@ importers:
       globals:
         specifier: ^16.5.0
         version: 16.5.0
+      tailwindcss:
+        specifier: ^4.2.1
+        version: 4.2.1
       vite:
         specifier: ^7.3.1
         version: 7.3.1(jiti@2.6.1)(lightningcss@1.31.1)
