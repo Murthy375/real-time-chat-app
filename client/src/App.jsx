@@ -1,10 +1,15 @@
-// css related
-import "./style.css"
+import ChatLIst from "./components/ChatLIst";
+import ChatView from "./components/ChatView";
+import DockBar from "./components/DockBar";
 
 function App() {
   return (
     <>
-      <h1 className=""></h1>
+      <main className="flex min-w-full min-h-full">
+        <DockBar />
+        <ChatLIst />
+        <ChatView />
+      </main>
     </>
   );
 }
